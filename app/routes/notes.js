@@ -16,6 +16,15 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+router.get('/', withAuth, async (req, res) => {
+    try {
+        let notes = await Note.find({author: req.user._id})
+        res.json(notes);
+    } catch (error) {
+        res.status(500).json({ error: "Problema to get a note" });
+    }
+});
+
 router.get('/:id', withAuth, async (req, res) => {
     try {
         const { id } = req.params;
