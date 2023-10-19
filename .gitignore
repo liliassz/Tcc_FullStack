@@ -1,6 +1,6 @@
 node_modules/  
 dist/         
-.env          
+.env        
 .vscode/            
 node_modules/.bin/node-pre-gyp.cmd
 node_modules/*
