@@ -1,4 +1,4 @@
-<h1>Front-end do projeto</h1>
+<h1>Informações do Projeto</h1>
 
-### `npm install`
-### `npm start`
+### Branch do Front `https://github.com/liliassz/ProjetoFinal_OneBitCode/tree/FrontEnd`
+### Branch do Back `npm start`
