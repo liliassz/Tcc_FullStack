@@ -6,4 +6,3 @@ node_modules/*
 node_modules_2
 node_modules
 .gitignore
-.env
