@@ -25,6 +25,35 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+const isOwner = (user, note) => {
+    if (JSON.stringify(user._id) == JSON.stringify(note.author._id)) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+router.get('/search', withAuth, async (req, res) => {
+    const { query } = req.query;
+    try {
+        const notes = await Note.aggregate([
+            {
+                $match: {
+                    $and: [
+                        { author: req.user._id },
+                        { $text: { $search: query } }
+                    ]
+                }
+            }
+        ]);
+
+        res.json(notes);
+    } catch (error) {
+        console.log(error);
+        res.status(508).json({ error: "Problema ao buscar notas" });
+    }
+});
+
 router.get('/:id', withAuth, async (req, res) => {
     try {
         const { id } = req.params;
@@ -48,8 +77,8 @@ router.put('/:id', withAuth, async (req, res) => {
         if (isOwner(req.user, note)) {
             let updatedNote = await Note.findOneAndUpdate(
                 { _id: id },
-                { $set: { title , body } },
-                { upsert: true, 'new' : true }
+                { $set: { title, body } },
+                { upsert: true, 'new': true }
             );
             res.json(note)
         } else {
@@ -68,7 +97,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         let note = await Note.findById(id);
         if (isOwner(req.user, note)) {
             await note.deleteOne();
-            res.status(204).json({messege: "Ok"})
+            res.status(204).json({ messege: "Ok" })
         } else {
             res.status(403).json({ error: "Not permission for delete this Note" });
         }
@@ -77,13 +106,5 @@ router.delete('/:id', withAuth, async (req, res) => {
         res.status(500).json({ error: "Problema to delete a note" });
     }
 });
-
-const isOwner = (user, note) => {
-    if (JSON.stringify(user._id) == JSON.stringify(note.author._id)) {
-        return true;
-    } else {
-        return false;
-    }
-};
 
 module.exports = router;
