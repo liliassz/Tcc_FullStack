@@ -1,1 +1,4 @@
-<h1>Api ainda em desenvolvimento..</h1>
+<h1>Front-end do projeto</h1>
+
+### `npm install`
+### `npm start`
