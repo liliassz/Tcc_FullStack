@@ -1,2 +1,7 @@
 node_modules
 node_modules_2
+<<<<<<< HEAD
+=======
+.gitignore
+.env
+>>>>>>> 986815cdf0352c7f621daba6f80aebe95dd1ec3b
