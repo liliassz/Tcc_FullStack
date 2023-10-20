@@ -1,9 +1,9 @@
 node_modules/  
 dist/         
-.env        
 .vscode/            
 node_modules/.bin/node-pre-gyp.cmd
 node_modules/*
+node_modules_2
 node_modules
 .gitignore
 .env
