@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Button } from 'rbx';
+import { Navbar, Button } from 'rbx';
 import logoImage from '../../assets/images/logo.png';
 import "rbx/index.css";
 
