@@ -2,7 +2,7 @@
 
 ## Branch do Front-end
 
-A branch do front-end contém o código relacionado à interface do usuário e às funcionalidades visíveis aos usuários. Você pode acessar essa branch diretamente pelo seguinte link: [FrontEnd Branch](https://github.com/liliassz/Tcc_FullStack/tree/frontend).
+A branch do front-end contém o código relacionado à interface do usuário e às funcionalidades visíveis aos usuários. Você pode acessar essa branch diretamente pelo seguinte link: [FrontEnd Branch](https://github.com/liliassz/Tcc_FullStack/tree/FrontEnd).
 
 ## Branch do Back-end
 
