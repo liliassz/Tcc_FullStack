@@ -1,11 +1,13 @@
-import Header from './components/header'
+import React, { Fragment } from 'react'
+import Rotas from './routes';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <Fragment>
+        <Rotas />
+    </Fragment>
   );
 }
 
 export default App;
+
