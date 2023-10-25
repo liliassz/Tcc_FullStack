@@ -1,51 +1,47 @@
 import React from 'react';
-import { Navbar, Button } from 'rbx';
+import { Navbar, Container, Column } from 'rbx';
+import { Link } from 'react-router-dom';
 import logoImage from '../../assets/images/logo.png';
+import '../../styles/header.scss';
 import "rbx/index.css";
+
 
 function Header() {
     return (
         <Navbar>
-            <Navbar.Brand>
-                <Navbar.Item href="#">
-                    <img
-                        src={logoImage}
-                        alt=""
-                        role="presentation"
-                        width="112"
-                        height="28"
-                    />
-                </Navbar.Item>
-                <Navbar.Burger />
-            </Navbar.Brand>
-            <Navbar.Menu>
-                <Navbar.Segment align="start">
-                    <Navbar.Item>Home</Navbar.Item>
-                    <Navbar.Item>Documentation</Navbar.Item>
+            <Container>
+                <Navbar.Brand>
+                    <Link to="/">
+                        <img
+                            src={logoImage}
+                            alt="Logo"
+                            role="presentation"
+                        />
+                    </Link>
+                    <Navbar.Burger
+                        className="navbar-burger burger"
+                        aria-label="menu"
+                        aria-expanded="false"
+                        data-target="navbar-menu">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </Navbar.Burger>
+                </Navbar.Brand>
 
-                    <Navbar.Item dropdown>
-                        <Navbar.Link>More</Navbar.Link>
-                        <Navbar.Dropdown>
-                            <Navbar.Item>About</Navbar.Item>
-                            <Navbar.Item>Jobs</Navbar.Item>
-                            <Navbar.Item>Contact</Navbar.Item>
-                            <Navbar.Divider />
-                            <Navbar.Item>Report an issue</Navbar.Item>
-                        </Navbar.Dropdown>
-                    </Navbar.Item>
-                </Navbar.Segment>
-
-                <Navbar.Segment align="end">
-                    <Navbar.Item>
-                        <Button.Group>
-                            <Button color="primary">
-                                <strong>Sign up</strong>
-                            </Button>
-                            <Button color="light">Log in</Button>
-                        </Button.Group>
-                    </Navbar.Item>
-                </Navbar.Segment>
-            </Navbar.Menu>
+                <Navbar.Menu id="navbar-menu">
+                    <Navbar.Segment as="div" className="navbar-item navbar-end" align="right">
+                        <Column.Group>
+                            <Column>
+                                <Link to="/register" className="button is-white has-text-custom-purple">Register</Link>
+                            </Column>
+                            <Column>
+                                <Link to="/login" className="button is-outlined is-custom-purple">Login</Link>
+                            </Column>
+                        </Column.Group>
+                    </Navbar.Segment>
+                </Navbar.Menu>
+            </Container>
         </Navbar>
     )
 };
